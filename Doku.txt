@@ -1,0 +1,81 @@
+
+Api_Key: sk-1Uj9uYFqGu2mbTEmi8MFT3BlbkFJordfgdaEgNTt64G4bui
+
+
+- Motivation:
+
+    Die Idee für das Projekt entstand bei einem Problem, das Ich schon am Ánfang des Semesters hatte.
+    Ich war es gewohnt mein Code nur in einer Datei zu schreiben. Das ganze verlinken und erstellen von makefiles
+    viel mir und meinen Kollegen sehr schwer. Ich wusste nie wo mein Fehler lag und konnte mir nur sehr schwer weiterhelfen.
+    ChatGPT konnte mir auch nur schwer helfen da man immer alle Dateien kopieren,bennenen und in einem Text zusammenfügen 
+    musste. Das ist sehr mühsam vorallem wenn man Änderungen am Code vornimmt, muss man das ganze Procedere erneut wiederholen.
+    Außerdem hat hat es mich interessiert wie kommunizieren Systeme mit einander? Wie benutze Ich Api Schnittstellen zu meinem
+    Vorteil?
+
+
+- Die Main Funktion des Projekts:
+
+    Das Programm nimmt einen Pfad zu einem Ordner in dem ein beliebiges Cpp Projekt liegt. Das Projekt ist von mittlerer 
+    Größe und ist am besten genauso aufgebaut wie eines unserer Übungsblätter. Alle relevanten Dateien werden struktoriert 
+    und in einer Übersichtlichen Form an ChatGPT gesendet. Man erhält dann ein Feedback zu seinem Projekt und kann auch so über ein zusätzliches
+    Kommentar kontrollieren lassen, ob sich Verlinkungs Fehler im Projekt befinden oder ob man Fehler in den makefiles hat.
+
+
+- Zusätzliche Funktionen (die noch nicht vollständig implementiert wurden): 
+
+    - Es kann passieren das dass Projekt zu groß ist, da man nur bis zu ca 1500 Wörter an ChatGPT senden kann.
+      Es werden dann von allen Dateien nur die Includes und das Makefile eingelesen. Da es das Ziel ist das 
+      ChatGPT Verlinkungsfehler findet.
+    - Das Programm hat einen permanenten Speicher Platz. (Man gibt seinen API Key nur einmal an)
+    - Hat man kein Apikey so wird nichts an direkt an ChatGPT gesendet. Sondern der User kann sich entscheiden 
+      ob der fertige Prompt ans Terminal übergeben wird oder wird er in ein Textdokument geschrieben.
+
+
+- Schwierigkeiten/Herausforderungen die ich bis jetzt hatte:
+
+    - Da ich mich mit der Arbeit von Api's nicht vertraut bin war es für mich recht neu 
+      und kompliziert die ApiService Funktionen zu bauen.
+    - Planung: Außer dem Einlesen von Dateien wusste ich ja nicht wie viel auf mich zu kommen würde.
+      Ich denke die oft über Wege die einiges vieleicht effektiver lösen würden. So ist mir auch
+      viel Zeit für die Directoryklasse drauf gegangen. Ich war fast fertig mit dieser, habe aber dann eine komplett 
+      neu Version gemacht, die mir besser gefallen hat. (Die alte Version ist in directoryfail cpp/hpp)
+    - Neue Librarys: Ich habe neue Librarys benutzt die ich davor noch nie benutzt habe z.b:
+      curl, nlohmann/json.hpp, filesystem.
+    - Tests!!! Das aller schwerste waren die Tests für mich. Wie soll ich Tests für Funktionen machen,
+      die ganze Directorys nehmen? Oder wie Teste ich void Funktionen? Alle Funktionen funktionieren so 
+      wie ich es vorgesehen habe aber die Tests schlagen oft fehl.
+
+Was ich selber kritisieren muss ist das ChatGPT nicht immer sauber arbeitet und
+ich etwas Angst habe das er nicht richtig erkennen wird wie die Dateien zusammen hängen.
+Jedoch war es mein Ziel für dieses Projekt ein eigenes Problem zu lösen
+und zu lernen wie API Kommunikation mit Cpp funktioniert. Für Rückfragen stehe Ich immer zu verfügung.
+
+Du kannst gerne den obigen Key benutzen. Benutze auch am besten Projekte die wie unsere Blätter aufgebaut
+sind. Ich habe vorallem mit blatt 2 und 9 getestet
+
+
+KurzInfo den Dateien und Klassen:
+
+Directory:
+  - Das ist mit die wichtigste Klasse, da diese einen Pfad zu einem Projekt nimmt und
+    dann die Stuktur des Projektes darstellt. Viele weitere Funktionen interagieren 
+    mit dieser Klasse.
+
+ApiService: 
+  - Die Funktionen in dieser Datei interagieren mit der API von ChatGPT
+
+File_manipulator:
+  - Die Funktion in dieser Klasse sind für das lesen und Schreiben von Files zuständig.
+
+Prompt:
+  - Formatiert die Dateien so das diese an ChatGPT gesendet werden können
+
+Save:
+  - Diese Funktionen sind für das Einlesen und Speichern des API Keys.
+
+UI:
+  - Hat 2 kleine Funktioneen für die Nutzeroberfäche
+
+  
+
+Zeitaufwand bei ca. 40h
